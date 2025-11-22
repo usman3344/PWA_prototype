@@ -39,6 +39,13 @@ let installButton = null;
 let installBanner = null;
 
 window.addEventListener('beforeinstallprompt', (e) => {
+    // Don't show install prompt if already installed
+    if (window.matchMedia('(display-mode: standalone)').matches || 
+        window.navigator.standalone === true) {
+        console.log('[PWA] App already installed - ignoring install prompt');
+        return;
+    }
+    
     // Prevent the mini-infobar from appearing on mobile
     e.preventDefault();
     // Stash the event so it can be triggered later
@@ -86,31 +93,70 @@ function handleInstallClick() {
 window.addEventListener('appinstalled', () => {
     console.log('[PWA] App was installed successfully');
     deferredPrompt = null;
+    
+    // Hide all install banners
+    if (installBanner) {
+        installBanner.style.display = 'none';
+    }
     if (installButton) {
         installButton.style.display = 'none';
+    }
+    
+    // Hide iOS banner if present
+    const iosBanner = document.getElementById('ios-install-banner');
+    if (iosBanner) {
+        iosBanner.style.display = 'none';
     }
 });
 
 // Check if app is already installed (standalone mode)
-if (window.matchMedia('(display-mode: standalone)').matches || 
-    window.navigator.standalone === true) {
-    console.log('[PWA] App is running in standalone mode');
-    if (installBanner) {
-        installBanner.style.display = 'none';
+function hideInstallBannersIfInstalled() {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                         window.navigator.standalone === true;
+    
+    if (isStandalone) {
+        console.log('[PWA] App is running in standalone mode - hiding install banners');
+        // Hide Chrome/Android install banner
+        if (installBanner) {
+            installBanner.style.display = 'none';
+        }
+        // Hide iOS install banner
+        const iosBanner = document.getElementById('ios-install-banner');
+        if (iosBanner) {
+            iosBanner.style.display = 'none';
+        }
+        return true;
     }
+    return false;
+}
+
+// Check on page load
+if (hideInstallBannersIfInstalled()) {
+    // Already installed, no need to show install prompts
+} else {
+    // Not installed, install prompts will show when available
 }
 
 // iOS Safari detection and instructions
 function detectIOS() {
+    // Don't show if already installed
+    if (window.matchMedia('(display-mode: standalone)').matches || 
+        window.navigator.standalone === true) {
+        const iosBanner = document.getElementById('ios-install-banner');
+        if (iosBanner) {
+            iosBanner.style.display = 'none';
+        }
+        return false;
+    }
+    
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
     const iosBanner = document.getElementById('ios-install-banner');
     
-    if (isIOS && !isStandalone && iosBanner) {
-        // Show iOS install instructions
+    if (isIOS && iosBanner) {
+        // Show iOS install instructions only if not installed
         iosBanner.style.display = 'block';
     } else if (iosBanner) {
-        // Hide if not iOS or already installed
+        // Hide if not iOS
         iosBanner.style.display = 'none';
     }
     
@@ -119,18 +165,15 @@ function detectIOS() {
 
 // Run iOS detection after page load
 window.addEventListener('load', () => {
+    // First check if installed
+    hideInstallBannersIfInstalled();
+    
+    // Then check for iOS if not installed
     setTimeout(() => {
-        detectIOS();
+        if (!hideInstallBannersIfInstalled()) {
+            detectIOS();
+        }
     }, 1000);
 });
-
-// Also check on standalone mode detection
-if (window.matchMedia('(display-mode: standalone)').matches || 
-    window.navigator.standalone === true) {
-    const iosBanner = document.getElementById('ios-install-banner');
-    if (iosBanner) {
-        iosBanner.style.display = 'none';
-    }
-}
 
 
