@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="VESIRON Tech Library - Progressive Web App for Virtual Emulation ecosystem documentation">
+    <meta name="theme-color" content="#002B36">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="veLibrary">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>VESIRON Tech Library</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VESIRON Tech Library</h1>
+        </header>
+        <main>
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+            
+            <!-- Install Button -->
+            <div id="install-banner" style="display: none;">
+                <p>📱 Install VESIRON Tech Library</p>
+                <button id="install-button">Install App</button>
+            </div>
+            
+            <div id="main-content" class="navigation-grid" role="navigation" aria-label="Main navigation">
+                <a href="/brand-overview.html" class="nav-button" aria-label="Navigate to Brand Overview page">
+                    <span class="button-icon" aria-hidden="true">📚</span>
+                    <span class="button-text">Brand Overview</span>
+                </a>
+                <a href="/patent-index.html" class="nav-button" aria-label="Navigate to Patent Index page">
+                    <span class="button-icon" aria-hidden="true">📋</span>
+                    <span class="button-text">Patent Index</span>
+                </a>
+                <a href="/document-viewer.html" class="nav-button" aria-label="Navigate to Document Viewer page">
+                    <span class="button-icon" aria-hidden="true">📄</span>
+                    <span class="button-text">Document Viewer</span>
+                </a>
+            </div>
+        </main>
+        <footer>
+            <p>VESIRON Tech Library PWA Prototype</p>
+        </footer>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+{
+  "name": "vesiron-tech-library-pwa",
+  "version": "1.0.0",
+  "description": "VESIRON Tech Library PWA Prototype",
+  "scripts": {
+    "serve": "npx http-server . -p 8080 -c-1"
+  }
+}
+
+

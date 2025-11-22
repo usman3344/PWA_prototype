@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="VESIRON Document Viewer - Access technical documentation and resources">
+    <meta name="theme-color" content="#002B36">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="veLibrary">
+    <title>Document Viewer - VESIRON Tech Library</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VESIRON Tech Library</h1>
+        </header>
+        <main>
+            <div class="content-wrapper">
+                <a href="/" class="back-button">Back</a>
+                <div class="content-page">
+                <h2>Document Viewer</h2>
+                
+                <h3>Document Management</h3>
+                <p>
+                    The Document Viewer section provides access to VESIRON technical documentation, 
+                    specifications, and reference materials. Documents are cached for offline access 
+                    using the PWA's cache-first strategy for optimal performance.
+                </p>
+                
+                <h3>Available Documents</h3>
+                <p>
+                    This prototype version includes placeholder content. In a production environment, 
+                    this section would display:
+                </p>
+                <ul>
+                    <li>Technical specifications and architecture documents</li>
+                    <li>API documentation and integration guides</li>
+                    <li>User manuals and developer resources</li>
+                    <li>White papers and research documents</li>
+                    <li>Compliance and certification documentation</li>
+                </ul>
+                
+                <h3>Offline Capabilities</h3>
+                <p>
+                    All documents are cached using the service worker's cache-first strategy, ensuring 
+                    that once downloaded, documents remain accessible even when the device is offline. 
+                    This is particularly useful for field work or areas with limited connectivity.
+                </p>
+                
+                <h3>Document Formats</h3>
+                <p>
+                    The viewer supports multiple document formats including PDF, HTML, and text files. 
+                    PDF documents are automatically cached for offline access using the cache-first 
+                    strategy implemented in the service worker.
+                </p>
+                
+                <h3>Search and Navigation</h3>
+                <p>
+                    Future enhancements to the Document Viewer will include full-text search capabilities, 
+                    document categorization, and advanced filtering options to help users quickly find 
+                    the information they need.
+                </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>VESIRON Tech Library PWA Prototype</p>
+        </footer>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
+
