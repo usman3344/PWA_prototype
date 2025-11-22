@@ -122,7 +122,7 @@ main {
     padding: 20px 0;
 }
 
-/* Install Banner */
+/* Install Banner (Chrome/Android) */
 #install-banner {
     text-align: center;
     margin-bottom: 32px;
@@ -130,6 +130,21 @@ main {
     background: var(--gradient-accent);
     color: white;
     border-radius: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideDown 0.5s ease-out;
+}
+
+/* iOS Install Banner */
+#ios-install-banner {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #002B36 0%, #00A896 100%);
+    color: white;
+    border-radius: 12px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;

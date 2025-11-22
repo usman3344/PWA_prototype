@@ -100,4 +100,37 @@ if (window.matchMedia('(display-mode: standalone)').matches ||
     }
 }
 
+// iOS Safari detection and instructions
+function detectIOS() {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+    const iosBanner = document.getElementById('ios-install-banner');
+    
+    if (isIOS && !isStandalone && iosBanner) {
+        // Show iOS install instructions
+        iosBanner.style.display = 'block';
+    } else if (iosBanner) {
+        // Hide if not iOS or already installed
+        iosBanner.style.display = 'none';
+    }
+    
+    return isIOS;
+}
+
+// Run iOS detection after page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        detectIOS();
+    }, 1000);
+});
+
+// Also check on standalone mode detection
+if (window.matchMedia('(display-mode: standalone)').matches || 
+    window.navigator.standalone === true) {
+    const iosBanner = document.getElementById('ios-install-banner');
+    if (iosBanner) {
+        iosBanner.style.display = 'none';
+    }
+}
+
 
