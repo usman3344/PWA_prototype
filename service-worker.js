@@ -20,6 +20,9 @@ const PATENT_PAGES = [
     '/patents/G12.html',
     '/patents/G13.html',
     '/patents/G14.html',
+    '/patents/G15.html',
+    '/patents/G16.html',
+    '/patents/G17.html',
     '/patents/G18.html',
     '/patents/G19.html'
 ];
