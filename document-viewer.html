@@ -23,48 +23,32 @@
             <div class="content-wrapper">
                 <a href="/" class="back-button">Back</a>
                 <div class="content-page">
-                <h2>Document Viewer</h2>
-                
-                <h3>Document Management</h3>
-                <p>
-                    The Document Viewer section provides access to VESIRON technical documentation, 
-                    specifications, and reference materials. Documents are cached for offline access 
-                    using the PWA's cache-first strategy for optimal performance.
-                </p>
-                
-                <h3>Available Documents</h3>
-                <p>
-                    This prototype version includes placeholder content. In a production environment, 
-                    this section would display:
-                </p>
-                <ul>
-                    <li>Technical specifications and architecture documents</li>
-                    <li>API documentation and integration guides</li>
-                    <li>User manuals and developer resources</li>
-                    <li>White papers and research documents</li>
-                    <li>Compliance and certification documentation</li>
-                </ul>
-                
-                <h3>Offline Capabilities</h3>
-                <p>
-                    All documents are cached using the service worker's cache-first strategy, ensuring 
-                    that once downloaded, documents remain accessible even when the device is offline. 
-                    This is particularly useful for field work or areas with limited connectivity.
-                </p>
-                
-                <h3>Document Formats</h3>
-                <p>
-                    The viewer supports multiple document formats including PDF, HTML, and text files. 
-                    PDF documents are automatically cached for offline access using the cache-first 
-                    strategy implemented in the service worker.
-                </p>
-                
-                <h3>Search and Navigation</h3>
-                <p>
-                    Future enhancements to the Document Viewer will include full-text search capabilities, 
-                    document categorization, and advanced filtering options to help users quickly find 
-                    the information they need.
-                </p>
+                    <h2>Document Viewer</h2>
+                    
+                    <h3>Technical Documentation</h3>
+                    <p>
+                        The Document Viewer provides access to VESIRON technical documentation, 
+                        specifications, and reference materials. Documents are cached for offline access 
+                        using the PWA's cache-first strategy for optimal performance.
+                    </p>
+                    
+                    <h3>Available Document</h3>
+                    <div class="pdf-viewer-container">
+                        <iframe 
+                            src="/assets/docs/placeholder.pdf" 
+                            type="application/pdf"
+                            title="VESIRON Technical Documentation">
+                            <div class="pdf-viewer-fallback">
+                                <p>Your browser does not support PDF viewing.</p>
+                                <p><a href="/assets/docs/placeholder.pdf" download>Download PDF</a></p>
+                            </div>
+                        </iframe>
+                    </div>
+                    
+                    <p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.95rem;">
+                        <strong>Note:</strong> This document is cached for offline access. Once loaded, it will be 
+                        available even when you're offline.
+                    </p>
                 </div>
             </div>
         </main>

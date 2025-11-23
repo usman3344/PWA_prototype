@@ -1,8 +1,28 @@
 // Service Worker for VESIRON Tech Library PWA
 // Cache version - increment this when updating assets
-const CACHE_VERSION = 'v1.0.1';
+const CACHE_VERSION = 'v1.0.2';
 const CACHE_NAME = `vesiron-tech-library-${CACHE_VERSION}`;
 const OFFLINE_PAGE = '/offline.html';
+
+// Patent detail pages
+const PATENT_PAGES = [
+    '/patents/G1.html',
+    '/patents/G2.html',
+    '/patents/G3.html',
+    '/patents/G4.html',
+    '/patents/G5.html',
+    '/patents/G6.html',
+    '/patents/G7.html',
+    '/patents/G8.html',
+    '/patents/G9.html',
+    '/patents/G10.html',
+    '/patents/G11.html',
+    '/patents/G12.html',
+    '/patents/G13.html',
+    '/patents/G14.html',
+    '/patents/G18.html',
+    '/patents/G19.html'
+];
 
 // Assets to precache - HTML/CSS/JS
 const PRECACHE_ASSETS = [
@@ -16,7 +36,9 @@ const PRECACHE_ASSETS = [
     '/offline.html',
     '/manifest.webmanifest',
     '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png'
+    '/icons/icon-512x512.png',
+    '/assets/docs/placeholder.pdf',
+    ...PATENT_PAGES
 ];
 
 // Install event - precache assets
