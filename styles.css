@@ -421,7 +421,8 @@ footer {
 }
 
 .pdf-viewer-container iframe,
-.pdf-viewer-container embed {
+.pdf-viewer-container embed,
+.pdf-viewer-container object {
     width: 100%;
     height: 100%;
     border: none;

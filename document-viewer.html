@@ -34,15 +34,22 @@
                     
                     <h3>Available Document</h3>
                     <div class="pdf-viewer-container">
-                        <iframe 
-                            src="/assets/docs/placeholder.pdf" 
+                        <object 
+                            data="/assets/docs/placeholder.pdf" 
                             type="application/pdf"
-                            title="VESIRON Technical Documentation">
-                            <div class="pdf-viewer-fallback">
-                                <p>Your browser does not support PDF viewing.</p>
-                                <p><a href="/assets/docs/placeholder.pdf" download>Download PDF</a></p>
-                            </div>
-                        </iframe>
+                            style="width: 100%; height: 100%;">
+                            <iframe 
+                                src="/assets/docs/placeholder.pdf" 
+                                type="application/pdf"
+                                title="VESIRON Technical Documentation"
+                                style="width: 100%; height: 100%; border: none;">
+                                <p class="pdf-viewer-fallback">
+                                    Your browser does not support PDF viewing. 
+                                    <a href="/assets/docs/placeholder.pdf" target="_blank" rel="noopener">Open PDF in new tab</a> 
+                                    or <a href="/assets/docs/placeholder.pdf" download>Download PDF</a>
+                                </p>
+                            </iframe>
+                        </object>
                     </div>
                     
                     <p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.95rem;">
